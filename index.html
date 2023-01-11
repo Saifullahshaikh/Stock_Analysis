@@ -1,0 +1,23 @@
+<h1>Welcome to Stock Analysis</h1>
+<form id="myForm" action="/get_plot" method="post">
+    Key: <input type="text" name="Stock_Key" required placeholder="APPL"/>
+    <br>
+    purchase: <input type="number" name="Purchase_price" required placeholder="USD"/>
+    <br>
+    Sale1: <input type="number" name="Sale_price_1" required placeholder="USD"/>
+    <br>
+    Sale2: <input type="number" name="Sale_price_2" required placeholder="USD"/>
+    <br>
+    <input type="submit" value = "OK"/>
+    <input type="button" onclick="reset()" value = "Reset"/>
+</form>
+
+<script>
+    function reset(){
+        document.getElementById("myForm").reset();
+    }
+</script>
+
+{% if plot_url %}
+    <img src = {{plot_url}} alt="Chart not displayed">
+{% endif %}
